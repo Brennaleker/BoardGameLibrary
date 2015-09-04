@@ -1,4 +1,5 @@
 # Brenna Break Project: Board Game Library
+(Trello Board)[https://trello.com/b/atO29PvG/board-game-library]
 
 ## What is the goal of the project?
 To create a personal board game library that allows the user(me) to add their board games and then uses sorts and filters to help the user choose a game to play.
