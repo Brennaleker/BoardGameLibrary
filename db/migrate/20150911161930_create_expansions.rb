@@ -1,6 +1,6 @@
-class CreateBoardGames < ActiveRecord::Migration
+class CreateExpansions < ActiveRecord::Migration
   def change
-    create_table :board_games do |t|
+    create_table :expansions do |t|
 
       t.timestamps null: false
       t.string :title
@@ -11,10 +11,7 @@ class CreateBoardGames < ActiveRecord::Migration
       t.integer :max_players
       t.integer :min_time
       t.integer :max_time
-      t.float :bgg_score
-      t.boolean :expansion
-      t.string :expansion_to
-
+      t.integer :bgg_score
     end
   end
 end
