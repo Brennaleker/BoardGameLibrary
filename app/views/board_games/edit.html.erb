@@ -1,22 +1,37 @@
+<div class = "form-header">
+  Edit <%= @board_game.title %>
+</div>
+
 <%= render partial: "form", locals: { item: @board_game,
                                       title_desc: "Title",
+                                      title_placeholder: "",
                                       title_value: @board_game.title,
                                       creator_desc: "Creator",
+                                      creator_placeholder: "",
                                       creator_value: @board_game.creator,
+                                      my_rating_desc: "My Rating (out of 10)",
+                                      my_rating_placeholder: "",
+                                      my_rating_value: @board_game.my_rating,
                                       description_desc: "Description",
+                                      description_placeholder: "",
                                       description_value: @board_game.description,
                                       min_players_desc: "Minimum # of Players",
+                                      min_players_placeholder: "",
                                       min_players_value: @board_game.min_players,
                                       max_players_desc: "Maximum # of Players",
+                                      max_players_placeholder: "",
                                       max_players_value: @board_game.max_players,
                                       min_time_desc: "Minimum play time (in minutes)",
+                                      min_time_placeholder: "",
                                       min_time_value: @board_game.min_time,
                                       max_time_desc: "Maximum play time (in maxutes)",
+                                      max_time_placeholder: "",
                                       max_time_value: @board_game.max_time,
                                       expansion_desc: "Expansion",
+                                      expansion_placeholder: "",
                                       expansion_value: @board_game.expansion,
                                       expansion_to_desc: "Expansion to",
-                                      expansion_to_placeholder: "Game Name",
+                                      expansion_to_placeholder: "",
                                       expansion_to_value: @board_game.expansion_to,
                                       submit_button: "Add" }
 %>

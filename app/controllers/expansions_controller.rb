@@ -1,2 +1,0 @@
-class ExpansionsController < ApplicationController
-end

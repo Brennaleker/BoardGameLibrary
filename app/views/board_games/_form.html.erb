@@ -6,6 +6,9 @@
 <%= f.label :creator, "#{creator_desc}" %>
 <%= f.text_field :creator, class: "form_field", placeholder: creator_placeholder, value: creator_value %>
 
+<%= f.label :my_rating, "#{my_rating_desc}" %>
+<%= f.text_field :my_rating, class: "form_field", placeholder: my_rating_placeholder, value: my_rating_value %>
+
 <%= f.label :description, "#{description_desc}" %>
 <%= f.text_area :description, size: "50x10", class: "form_field", placeholder: description_placeholder, value: description_value %>
 

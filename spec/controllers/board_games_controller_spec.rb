@@ -75,8 +75,8 @@ RSpec.describe BoardGamesController, type: :controller do
     context "invalid board game params" do
       let(:board_game_params) do {
         board_game:{
-          author: 'author',
-          description: 'description'
+          creator: 'Del the Creator',
+          description: 'game information'
         }
       }
       end
@@ -125,14 +125,5 @@ RSpec.describe BoardGamesController, type: :controller do
       }.to change(BoardGame, :count).by(-1)
     end
   end # end of describe block
-
-  describe "POST #upvote" do
-    it "updates the ranking by 1 with each upvote" do
-      board_game = BoardGame.create(title: "Board game")
-      post :upvote, id: board_game
-      board_game.reload
-      expect(board_game.rating).to eq 2
-    end
-  end
 
 end # end of describe for Board Games Controller

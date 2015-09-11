@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911161930) do
+ActiveRecord::Schema.define(version: 20150904215501) do
 
   create_table "board_games", force: :cascade do |t|
     t.datetime "created_at",   null: false
@@ -24,23 +24,10 @@ ActiveRecord::Schema.define(version: 20150911161930) do
     t.integer  "max_players"
     t.integer  "min_time"
     t.integer  "max_time"
+    t.float    "my_rating"
     t.float    "bgg_score"
     t.boolean  "expansion"
     t.string   "expansion_to"
-  end
-
-  create_table "expansions", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "title"
-    t.string   "creator"
-    t.string   "image"
-    t.text     "description"
-    t.integer  "min_players"
-    t.integer  "max_players"
-    t.integer  "min_time"
-    t.integer  "max_time"
-    t.integer  "bgg_score"
   end
 
 end

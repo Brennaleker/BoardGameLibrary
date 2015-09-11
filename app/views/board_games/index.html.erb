@@ -1,30 +1,21 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
+<div class="library">
+  <table>
+    <thead>
       <th>
-        Rating
+       Title
       </th>
       <th>
-        Title
+        My Rating
       </th>
-      <th>
-        Upvote
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @board_games.each do |game| %>
-    <tr>
+    </thead>
+  <% @board_games.each do |game| %>
       <td>
-        <%= game.rating %>
+      <%= link_to "#{game.title}", board_game_path(game.id)  %>
       </td>
       <td>
-        <%= link_to "#{game.title}", board_game_path(game.id)  %>
-      </td>
-      <td>
-        <%= button_to "Upvote", upvote_board_game_path(game.id), class: "btn board-btn" %>
+      <%= game.my_rating %>
       </td>
     </tr>
     <% end  %>
-  </tbody>
-</table>
+  <//table>
+</div>
