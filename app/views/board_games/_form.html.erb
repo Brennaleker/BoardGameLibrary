@@ -1,0 +1,31 @@
+<%= form_for item do |f| %>
+
+<%= f.label :title, "#{title_desc}" %>
+<%= f.text_field :title, class: "form_field", autofocus: true, placeholder: title_placeholder, value: title_value %>
+
+<%= f.label :creator, "#{creator_desc}" %>
+<%= f.text_field :creator, class: "form_field", placeholder: creator_placeholder, value: creator_value %>
+
+<%= f.label :description, "#{description_desc}" %>
+<%= f.text_area :description, size: "50x10", class: "form_field", placeholder: description_placeholder, value: description_value %>
+
+<%= f.label :min_players, "#{min_players_desc}" %>
+<%= f.text_field :min_players, class: "form_field", placeholder: min_players_placeholder, value: min_players_value %>
+
+<%= f.label :max_players, "#{max_players_desc}" %>
+<%= f.text_field :max_players, class: "form_field", placeholder: max_players_placeholder, value: max_players_value %>
+
+<%= f.label :min_time, "#{min_time_desc}" %>
+<%= f.text_field :min_time, class: "form_field", placeholder: min_time_placeholder, value: min_time_value %>
+
+<%= f.label :max_time, "#{max_time_desc}" %>
+<%= f.text_field :max_time, class: "form_field", placeholder: max_time_placeholder, value: max_time_value %>
+
+<%= f.label :expansion, "#{expansion_desc}" %>
+<%= f.text_field :expansion, class: "form_field", placeholder: expansion_placeholder, value: expansion_value %>
+
+<%= f.label :expansion_to, "#{expansion_to_desc}" %>
+<%= f.text_field :expansion_to, class: "form_field", placeholder: expansion_to_placeholder, value: expansion_to_value %>
+
+<%= f.submit submit_button, class: "btn board-btn" %>
+<% end %>

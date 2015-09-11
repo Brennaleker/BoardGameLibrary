@@ -1,0 +1,30 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>
+        Rating
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Upvote
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @board_games.each do |game| %>
+    <tr>
+      <td>
+        <%= game.rating %>
+      </td>
+      <td>
+        <%= link_to "#{game.title}", board_game_path(game.id)  %>
+      </td>
+      <td>
+        <%= button_to "Upvote", upvote_board_game_path(game.id), class: "btn board-btn" %>
+      </td>
+    </tr>
+    <% end  %>
+  </tbody>
+</table>
