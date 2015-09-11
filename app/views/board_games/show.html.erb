@@ -1,4 +1,6 @@
-<h2><%= @board_game.title %></h2>
+<h2 class="library"><%= @board_game.title %></h2>
+
+<div class="library">
 <h4>Created by: <%= @board_game.creator %></h4>
 <p>
   Ranked:  <%= @board_game.bgg_score %>
@@ -7,3 +9,4 @@
 <p>
   <%= @board_game.description %>
 </p>
+</div>

@@ -60,6 +60,8 @@ GEM
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    google-webfonts (0.2.0)
+      actionpack (>= 3.0.0)
     httparty (0.13.5)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -184,6 +186,7 @@ DEPENDENCIES
   binding_of_caller
   byebug
   coffee-rails (~> 4.1.0)
+  google-webfonts
   httparty
   jbuilder (~> 2.0)
   jquery-rails

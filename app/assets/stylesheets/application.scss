@@ -17,6 +17,7 @@
 html {
   background-image: url('GameCollection.jpg');
   background-size: cover;
+  font-family: 'PT Sans';
 }
 
 .form_field {
@@ -26,22 +27,42 @@ html {
   margin-bottom: 15px;
 }
 
-.library {
+.library, .library-header {
   max-width: 75%;
   margin: auto;
   margin-top: 50px;
+  padding: 15px;
   border-radius: 20px;
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255,255,255,0.9);
+}
+
+.library-header {
+  font-family: "Vollkorn";
+  color: #D81E5B;
+}
+
+th {
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 200px;
+}
+
+.library, .library-header, form, .form-header {
+  border-radius: 10px;
+  box-shadow: 9px 9px 5px 0px rgba(50, 50, 50, 0.85);
 }
 
 form, .form-header {
   max-width: 50%;
   margin: auto;
-  margin-top: 50px;
   padding: 15px;
   background-color: rgba(255,255,255,0.8);
 }
 
 .form-header {
-
+  margin-top: 50px;
+  margin-bottom: 25px;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: "Vollkorn";
 }
