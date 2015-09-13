@@ -4,9 +4,20 @@
 <h2><%= @board_game.title %></h2>
 <h4>Created by: <%= @board_game.creator %></h4>
 <% if @board_game.expansion == true %>
-<p>
-  Expansion to: <%= @board_game.expansion_to %>
-</p>
+  <p>
+    Expansion to: <%= @board_game.expansion_to %>
+  </p>
+<% elsif @expansions.length != 0 %>
+  <p>
+    Expansions  Owned:
+  </p>
+  <ul>
+    <% @expansions.each do |expansion| %>
+    <li>
+      <%= expansion.title %>
+    </li>
+  </ul>
+  <% end %>
 <% end %>
 <p>
   My Score: <%= @board_game.my_score %>

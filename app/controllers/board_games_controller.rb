@@ -6,7 +6,7 @@ class BoardGamesController < ApplicationController
 
   def show
     locate_board_game
-
+    find_expansions
     render :show
   end
 
@@ -25,14 +25,6 @@ class BoardGamesController < ApplicationController
     end
   end
 
-  # Upvote an existing Board Game
-  def upvote
-    locate_board_game
-    @board_game.rating += 1
-    @board_game.save
-
-    redirect_to board_game_path(@board_game.id)
-  end
   # Update an existing Board Game
   def edit
     locate_board_game
@@ -57,6 +49,16 @@ class BoardGamesController < ApplicationController
   def locate_board_game
     board_game_id = params[:id]
     @board_game = BoardGame.find(board_game_id)
+  end
+
+  def find_expansions
+    @board_games = BoardGame.all
+    @expansions = []
+    @board_games.each do |game|
+      if game.expansion_to == @board_game.title
+        @expansions.push(game)
+      end
+    end
   end
 
   private
