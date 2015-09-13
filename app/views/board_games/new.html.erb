@@ -1,35 +1,31 @@
 <%= render partial: "header" %>
+<%= form_for @board_game, class: 'form-horizontal' do |f| %>
+<fieldset>
+  <legend>Game Details</legend>
+    <%= f.label :title, "Title:"  %>
+    <%= f.text_field :title, class: "form_field", autofocus: true, placeholder: "Settlers of Catan", value: @board_game.title %>
 
-<%= render partial: "form", locals: { item: @board_game,
-                                      title_desc: "Title",
-                                      title_placeholder: "Settlers of Catan",
-                                      title_value: @board_game.title,
-                                      creator_desc: "Creator",
-                                      creator_placeholder: "Klaus Teuber",
-                                      creator_value: @board_game.creator,
-                                      my_score_desc: "My Score (out of 10)",
-                                      my_score_placeholder: "",
-                                      my_score_value: @board_game.my_score,
-                                      description_desc: "Description",
-                                      description_placeholder: "The Settlers of Catan is a resource gathering game and was one of the first German-style board games to achieve popularity outside of Europe",
-                                      description_value: @board_game.description,
-                                      min_players_desc: "Minimum # of Players",
-                                      min_players_placeholder: 2,
-                                      min_players_value: @board_game.min_players,
-                                      max_players_desc: "Maximum # of Players",
-                                      max_players_placeholder: 2,
-                                      max_players_value: @board_game.max_players,
-                                      min_time_desc: "Minimum play time (in minutes)",
-                                      min_time_placeholder: 45,
-                                      min_time_value: @board_game.min_time,
-                                      max_time_desc: "Maximum play time (in maxutes)",
-                                      max_time_placeholder: 60,
-                                      max_time_value: @board_game.max_time,
-                                      expansion_desc: "Expansion",
-                                      expansion_placeholder: false,
-                                      expansion_value: @board_game.expansion,
-                                      expansion_to_desc: "Expansion to",
-                                      expansion_to_placeholder: "Game Name",
-                                      expansion_to_value: @board_game.expansion_to,
-                                      submit_button: "Add" }
-%>
+    <%= f.label :creator, "Creator:"  %>
+    <%= f.text_field :creator, class: "form_field", autofocus: true, placeholder: "Klaus Teuber", value: @board_game.creator %>
+
+    <%= f.label :my_score, "My Score: (out of 10)"  %>
+    <%= f.text_field :my_score, class: "form_field", autofocus: true, placeholder: 8.5, value: @board_game.my_score %>
+
+    <%= f.label :min_players, "Minimum Number of Players:"  %>
+    <%= f.text_field :min_players, class: "form_field", autofocus: true, placeholder: 3, value: @board_game.min_players %>
+
+    <%= f.label :max_players, "Maximum Number of Players:"  %>
+    <%= f.text_field :max_players, class: "form_field", autofocus: true, placeholder: 4, value: @board_game.max_players %>
+
+    <%= f.label :min_time, "Short Game: (in minutes)"  %>
+    <%= f.text_field :min_time, class: "form_field", autofocus: true, placeholder: 60, value: @board_game.min_time %>
+
+    <%= f.label :max_time, "Long Game: (in minutes)"  %>
+    <%= f.text_field :max_time, class: "form_field", autofocus: true, placeholder: 60, value: @board_game.max_time %>
+
+    <%= f.label :description, "Description:"  %>
+    <%= f.text_area :description, size: "50x10", class: "form_field", autofocus: true, placeholder: "In Settlers of Catan players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources (cards)—wood, grain, brick, sheep, or stone—to build up their civilizations to get to 10 victory points and win the game.", value: @board_game.description %>
+ </fieldset>
+
+  <%= f.submit 'Add Game', class: 'btn btn-primary' %>
+<% end %>
