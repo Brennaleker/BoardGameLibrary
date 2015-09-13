@@ -18,7 +18,7 @@
 @import "bootstrap";
 
 html {
-  background-color: #C2EFEB;
+  background-color: #056d9c;
   font-family: 'PT Sans';
 }
 
@@ -26,8 +26,11 @@ body {
   background-color: transparent;
 }
 
-nav {
+header {
   background-color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 25px;
 }
 
 .form_field {
@@ -37,15 +40,15 @@ nav {
   margin-bottom: 15px;
 }
 
-.library, .library-header {
+.library {
   max-width: 75%;
   margin: auto;
   padding: 15px;
   border-radius: 20px;
-  background-color: rgba(255,255,255,0.9);
+  background-color: #fff;
 }
 
-.library-header, .form-header {
+ .form-header {
   margin-top: 50px;
   margin-bottom: 25px;
   font-family: "Vollkorn";
@@ -61,7 +64,7 @@ td, th{
   padding-right: 25px;
 }
 
-.library, .library-header, form, .form-header {
+.library, form, .form-header {
   border-radius: 10px;
   box-shadow: 9px 9px 5px 0px rgba(50, 50, 50, 0.85);
 }

@@ -1,6 +1,6 @@
 class BoardGamesController < ApplicationController
   def index
-    @board_games = BoardGame.all
+    @board_games = BoardGame.all.ordered_by_name
     render :index
   end
 

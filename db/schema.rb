@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150904215501) do
     t.integer  "max_players"
     t.integer  "min_time"
     t.integer  "max_time"
-    t.float    "my_rating"
+    t.float    "my_score"
     t.float    "bgg_score"
     t.boolean  "expansion"
     t.string   "expansion_to"

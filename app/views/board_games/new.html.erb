@@ -1,3 +1,5 @@
+<%= render partial: "header" %>
+
 <%= render partial: "form", locals: { item: @board_game,
                                       title_desc: "Title",
                                       title_placeholder: "Settlers of Catan",
@@ -5,9 +7,9 @@
                                       creator_desc: "Creator",
                                       creator_placeholder: "Klaus Teuber",
                                       creator_value: @board_game.creator,
-                                      my_rating_desc: "My Rating (out of 10)",
-                                      my_rating_placeholder: "",
-                                      my_rating_value: @board_game.my_rating,
+                                      my_score_desc: "My Score (out of 10)",
+                                      my_score_placeholder: "",
+                                      my_score_value: @board_game.my_score,
                                       description_desc: "Description",
                                       description_placeholder: "The Settlers of Catan is a resource gathering game and was one of the first German-style board games to achieve popularity outside of Europe",
                                       description_value: @board_game.description,

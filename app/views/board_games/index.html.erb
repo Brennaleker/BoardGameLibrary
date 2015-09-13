@@ -1,9 +1,13 @@
-<h1 class="library-header">
-  Welcome to your Board Game Library Brenna
-</h1>
-
+<header>
+  <h2>
+  My Board Game Library
+  </h2>
+  <p>
+    There are currently  <%= @board_games.count %> games in my library.
+  </p>
+</header>
 <div class="library">
-  <table class = "table" >
+  <table class = "table table-hover" >
     <thead>
       <th>
         My Rating
@@ -22,7 +26,7 @@
       <% @board_games.each do |game| %>
         <tr>
           <td>
-            <%= game.my_rating %>
+            <%= game.my_score %>
           </td>
           <td>
           <%= link_to "#{game.title}", board_game_path(game.id)  %>

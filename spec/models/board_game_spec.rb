@@ -5,6 +5,6 @@ RSpec.describe BoardGame, type: :model do
     carcassone = BoardGame.create!(title: "Carcassone")
     sentinels = BoardGame.create!(title: "Sentinels of the Multiverse")
 
-    expect(BoardGame.ordered_by_rating).to eq([carcassone, sentinels])
+    expect(BoardGame.ordered_by_name).to eq([carcassone, sentinels])
   end
 end

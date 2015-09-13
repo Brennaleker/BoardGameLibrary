@@ -1,11 +1,25 @@
-<h2 class="library-header"><%= @board_game.title %></h2>
+<%= render partial: "header" %>
 
 <div class="library">
+<h2><%= @board_game.title %></h2>
 <h4>Created by: <%= @board_game.creator %></h4>
+<% if @board_game.expansion == true %>
 <p>
-  Ranked:  <%= @board_game.bgg_score %>
+  Expansion to: <%= @board_game.expansion_to %>
 </p>
-
+<% end %>
+<p>
+  My Score: <%= @board_game.my_score %>
+</p>
+<p>
+  Board Game Geek Score:  <%= @board_game.bgg_score %>
+</p>
+<p>
+  Players: <%= @board_game.min_players %> - <%= @board_game.max_players %>
+</p>
+<p>
+  Play time: <%= @board_game.min_time %> - <%= @board_game.max_time %>
+</p>
 <p>
   <%= @board_game.description %>
 </p>
