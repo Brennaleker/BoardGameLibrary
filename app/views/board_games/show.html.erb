@@ -2,7 +2,6 @@
 
 <div class="library">
 <h2><%= @board_game.title %></h2>
-<h4>Created by: <%= @board_game.creator %></h4>
 <% if @board_game.expansion == true %>
   <p>
     Expansion to: <%= @board_game.expansion_to %>
@@ -14,11 +13,12 @@
   <ul>
     <% @expansions.each do |expansion| %>
     <li>
-      <%= expansion.title %>
+      <%= link_to "#{expansion.title}", board_game_path(expansion.id) %>
     </li>
   </ul>
   <% end %>
 <% end %>
+<p>Created by: <%= @board_game.creator %></p>
 <p>
   My Score: <%= @board_game.my_score %>
 </p>
@@ -29,7 +29,7 @@
   Players: <%= @board_game.min_players %> - <%= @board_game.max_players %>
 </p>
 <p>
-  Play time: <%= @board_game.min_time %> - <%= @board_game.max_time %>
+  Play time: <%= @board_game.min_time %> - <%= @board_game.max_time %> minutes
 </p>
 <p>
   Description:
@@ -37,4 +37,6 @@
 <p>
   <%= @board_game.description %>
 </p>
+<%= link_to "Edit Game", edit_board_game_path(@board_game.id), class: "btn btn-primary" %>
+<%= link_to "Remove Game", board_game_path(@board_game.id), class: "btn btn-danger", :method => :delete %>
 </div>

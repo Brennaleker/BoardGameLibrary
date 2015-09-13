@@ -43,7 +43,7 @@ class BoardGamesController < ApplicationController
     locate_board_game
     @board_game.destroy
 
-    redirect_to board_games_path
+    redirect_to home_path
   end
 
   def locate_board_game

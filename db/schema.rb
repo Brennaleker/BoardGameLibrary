@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20150904215501) do
     t.datetime "updated_at",   null: false
     t.string   "title"
     t.string   "creator"
-    t.string   "image"
     t.text     "description"
     t.integer  "min_players"
     t.integer  "max_players"
