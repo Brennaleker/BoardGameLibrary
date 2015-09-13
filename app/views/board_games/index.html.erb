@@ -3,23 +3,38 @@
 </h1>
 
 <div class="library">
-  <table>
+  <table class = "table" >
     <thead>
+      <th>
+        My Rating
+      </th>
       <th>
        Title
       </th>
       <th>
-        My Rating
+        Players
+      </th>
+      <th>
+        Play Time
       </th>
     </thead>
-  <% @board_games.each do |game| %>
-      <td>
-      <%= link_to "#{game.title}", board_game_path(game.id)  %>
-      </td>
-      <td>
-      <%= game.my_rating %>
-      </td>
-    </tr>
-    <% end  %>
-  <//table>
+    <tbody>
+      <% @board_games.each do |game| %>
+        <tr>
+          <td>
+            <%= game.my_rating %>
+          </td>
+          <td>
+          <%= link_to "#{game.title}", board_game_path(game.id)  %>
+          </td>
+          <td>
+            <%= game.min_players %> - <%= game.max_players %>
+          </td>
+          <td>
+            <%= game.min_time %> - <%= game.max_time %>
+          </td>
+        </tr>
+      <% end  %>
+    </tbody>
+  </table>
 </div>

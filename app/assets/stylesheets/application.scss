@@ -14,10 +14,20 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 html {
-  background-image: url('GameCollection.jpg');
-  background-size: cover;
+  background-color: #C2EFEB;
   font-family: 'PT Sans';
+}
+
+body {
+  background-color: transparent;
+}
+
+nav {
+  background-color: #fff;
 }
 
 .form_field {
@@ -30,21 +40,25 @@ html {
 .library, .library-header {
   max-width: 75%;
   margin: auto;
-  margin-top: 50px;
   padding: 15px;
   border-radius: 20px;
   background-color: rgba(255,255,255,0.9);
 }
 
-.library-header {
+.library-header, .form-header {
+  margin-top: 50px;
+  margin-bottom: 25px;
   font-family: "Vollkorn";
-  color: #D81E5B;
+  color: #41337A;
 }
 
 th {
-  font-size: 20px;
-  padding-left: 20px;
-  padding-right: 200px;
+  font-size: 16px;
+}
+
+td, th{
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .library, .library-header, form, .form-header {
@@ -57,12 +71,4 @@ form, .form-header {
   margin: auto;
   padding: 15px;
   background-color: rgba(255,255,255,0.8);
-}
-
-.form-header {
-  margin-top: 50px;
-  margin-bottom: 25px;
-  font-size: 32px;
-  font-weight: bold;
-  font-family: "Vollkorn";
 }
