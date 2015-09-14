@@ -2,11 +2,12 @@ require 'httparty'
 
 class BoardGamesController < ApplicationController
   def index
-    @board_games = BoardGame.all.ordered_by_name
+  board_games
     render :index
   end
 
   def show
+    board_games
     locate_board_game
     find_expansions
     find_base_game
@@ -15,11 +16,13 @@ class BoardGamesController < ApplicationController
 
   # Add a new Board Game
   def new
+    board_games
     @board_game = BoardGame.new(board_game_params[:board_game])
     title_collection
   end
 
   def create
+    board_games
     @board_game = BoardGame.create(board_game_params[:board_game])
     call_bgg
     @board_game.bgg_score = @bgg_score
@@ -33,12 +36,14 @@ class BoardGamesController < ApplicationController
 
   # Update an existing Board Game
   def edit
+    board_games
     locate_board_game
     title_collection
     render :edit
   end
 
   def update
+    board_games
     locate_board_game
     @board_game.update(board_game_params[:board_game])
     redirect_to board_game_path
@@ -51,6 +56,35 @@ class BoardGamesController < ApplicationController
     redirect_to home_path
   end
 
+  def search
+    board_games
+    @board_games = BoardGame.all
+    @results_by_time = BoardGame.time_search params[:time]
+    @results_by_min_players = BoardGame.player_search_min params[:players]
+    @results_by_max_players = BoardGame.player_search_max params[:players]
+    @results = []
+    if params[:time] == "" && params[:players] == ""
+      flash.now[:error] = "You did not enter any search parameters."
+    elsif params[:time] != "" && params[:players] != ""
+      @results_by_time.each do |result|
+        if @results_by_min_players.include?(result) && @results_by_max_players.include?(result)
+          @results.push(result)
+        end
+      end
+    elsif params[:players] != ""
+      @results_by_min_players.each do |result|
+        if @results_by_max_players.include?(result)
+          @results.push(result)
+        end
+      end
+    elsif params[:time] != ""
+      @results = @results_by_time
+    end
+  end
+
+  def board_games
+    @board_games = BoardGame.all.ordered_by_name
+  end
   def locate_board_game
     board_game_id = params[:id]
     @board_game = BoardGame.find(board_game_id)

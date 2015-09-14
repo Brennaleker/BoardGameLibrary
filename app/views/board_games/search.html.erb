@@ -1,4 +1,8 @@
-<div class="library">
+<div class = "library">
+  <% if flash.now[:error] %>
+    <p class = "alert alert-info"><%= flash.now[:error] %></p>
+  <% end %>
+
   <table class = "table table-hover" >
     <thead>
       <th>
@@ -15,12 +19,7 @@
       </th>
     </thead>
     <tbody>
-      <tr>
-        <td colspan="4">
-          <%= link_to '+ Add a new game', new_board_game_path  %>
-        </td>
-      </tr>
-      <% @board_games.each do |game| %>
+      <% @results.each do |game| %>
         <tr>
           <td>
             <%= game.my_score %>
