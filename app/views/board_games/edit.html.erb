@@ -1,12 +1,8 @@
 <%= render partial: "header" %>
 
-<div class = "form-header">
-  Edit <%= @board_game.title %>
-</div>
-
 <%= form_for @board_game, class: 'form-horizontal' do |f| %>
-<fieldset>
-  <legend>Game Details</legend>
+<h2>Edit <%= @board_game.title %></h2>
+  <fieldset>
     <%= f.label :title, "Title:"  %>
     <%= f.text_field :title, class: "form_field", autofocus: true, placeholder: "Settlers of Catan", value: @board_game.title %>
 
@@ -32,5 +28,5 @@
     <%= f.text_area :description, size: "50x10", class: "form_field", autofocus: true, placeholder: "In Settlers of Catan players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources (cards)—wood, grain, brick, sheep, or stone—to build up their civilizations to get to 10 victory points and win the game.", value: @board_game.description %>
  </fieldset>
 
-  <%= f.submit 'Add Game', class: 'btn btn-primary' %>
+  <%= f.submit 'Edit Game', class: 'btn btn-primary' %>
 <% end %>

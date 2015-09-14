@@ -1,11 +1,17 @@
 <header>
-  <h2>
-  My Board Game Library
-  </h2>
-  <p>
-    There are currently  <span class = "badge"><%= @board_games.count %></span> games in my library.
-  </p>
+  <div class = "brand">
+    <h3>
+    My Board Game Library
+  </h3>
+    <p>
+      There are currently  <span class = "badge"><%= @board_games.count %></span> games in my library.
+    </p>
+
+  </div>
 </header>
+<div class = "finder">
+  Find a Game
+</div>
 <div class="library">
   <table class = "table table-hover" >
     <thead>
@@ -19,10 +25,15 @@
         Players
       </th>
       <th>
-        Play Time
+        Play Time (in minutes)
       </th>
     </thead>
     <tbody>
+      <tr>
+        <td>
+          <%= link_to '+ Add a new game', new_board_game_path  %>
+        </td>
+      </tr>
       <% @board_games.each do |game| %>
         <tr>
           <td>

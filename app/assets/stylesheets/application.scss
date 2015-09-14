@@ -27,10 +27,26 @@ body {
 }
 
 header {
-  background-color: #fff;
+  background-image: url('GameCollection.jpg');
   text-align: center;
-  padding: 20px;
+  padding: 35px;
+  margin: 20px, 0;
+}
+
+.brand {
+  max-width: 40%;
+  background-color: #fff;
+  margin: auto;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.finder {
+  background-color: #fff;
   margin-bottom: 25px;
+  padding: 15px;
+  border-top: 3px groove #bbb;
+  border-bottom: 3px groove #bbb;
 }
 
 .form_field {
@@ -64,14 +80,14 @@ td, th{
   padding-right: 25px;
 }
 
-.library, form, .form-header {
+.library, form {
   border-radius: 10px;
+  background-color: #fff;
   box-shadow: 9px 9px 5px 0px rgba(50, 50, 50, 0.85);
 }
 
-form, .form-header {
+form {
   max-width: 50%;
   margin: auto;
   padding: 15px;
-  background-color: rgba(255,255,255,0.8);
 }

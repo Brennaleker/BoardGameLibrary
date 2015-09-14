@@ -3,7 +3,14 @@
 <fieldset>
   <legend>Game Details</legend>
     <%= f.label :title, "Title:"  %>
-    <%= f.text_field :title, class: "form_field", autofocus: true, placeholder: "Settlers of Catan", value: @board_game.title %>
+    <%= f.text_field :title, class: "form_field", autofocus: true, placeholder: "Settlers of Catan" %>
+
+    <%= f.label :expansion, "Is an expansion:" %>
+    <%= f.select :expansion, [[false], [true]], class: "form_field", autofocus: true %>
+    <br>
+
+    <%= f.label :expansion_to, "Expansion to:" %>
+    <%= f.select :expansion_to, @game_titles, class: "form_field", autofocus: true  %>
 
     <%= f.label :creator, "Creator:"  %>
     <%= f.text_field :creator, class: "form_field", autofocus: true, placeholder: "Klaus Teuber", value: @board_game.creator %>

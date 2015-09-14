@@ -4,7 +4,7 @@
 <h2><%= @board_game.title %></h2>
 <% if @board_game.expansion == true %>
   <p>
-    Expansion to: <%= @board_game.expansion_to %>
+    Expansion to: <%= link_to "#{@board_game.expansion_to}", board_game_path(@base_game.id) %>
   </p>
 <% elsif @expansions.length != 0 %>
   <p>
@@ -23,7 +23,12 @@
   My Score: <%= @board_game.my_score %>
 </p>
 <p>
-  Board Game Geek Score:  <%= @board_game.bgg_score %>
+  Board Game Geek Score:
+  <% if @board_game.bgg_score == nil %>
+    not found
+  <% else %>
+    <%= @board_game.bgg_score %>
+  <% end %>
 </p>
 <p>
   Players: <%= @board_game.min_players %> - <%= @board_game.max_players %>
