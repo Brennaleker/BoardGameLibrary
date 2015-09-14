@@ -144,12 +144,21 @@ class BoardGamesController < ApplicationController
 
   def create_game
     title = params["title"]
-    creator = @bgg_game_result["boardgamedesigner"]["__content__"]
-    description = @bgg_game_result["description"] 
+    if @bgg_game_result["boardgamedesigner"].count == 1
+      creator = @bgg_game_result["boardgamedesigner"]["__content__"]
+    else
+      creator = ""
+      last = @bgg_game_result["boardgamedesigner"].pop
+      @bgg_game_result["boardgamedesigner"].each do |designer|
+        creator += (designer["__content__"] + ", ")
+      end
+      creator += ("and " + last["__content__"])
+    end
+    description = @bgg_game_result["description"].gsub '<br/>', ''
     min_players = @bgg_game_result["minplayers"]
     max_players = @bgg_game_result["maxplayers"]
-    min_time = @bgg_game_result["minpaytime"]
-    max_time = @bgg_game_result["maxpaytime"]
+    min_time = @bgg_game_result["minplaytime"]
+    max_time = @bgg_game_result["maxplaytime"]
     bgg_score = @bgg_game_result["statistics"]["ratings"]["average"]
     @board_game = BoardGame.create(title: title, creator: creator, description: description, min_players: min_players, max_players: max_players, min_time: min_time, max_time: max_time, bgg_score: bgg_score)
   end

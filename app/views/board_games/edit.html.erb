@@ -2,7 +2,7 @@
   <%= form_for @board_game do |f| %>
   <fieldset>
     <legend>Game Details</legend>
-      <%= f.label :title, "Title:"  %>
+      <%= f.label :title, "Title:" %>
       <%= f.text_field :title, class: "form_field", autofocus: true %>
 
       <%= f.label :expansion, "Is an expansion:" %>
@@ -10,7 +10,7 @@
       <br>
 
       <%= f.label :expansion_to, "Expansion to:" %>
-      <%= f.select :expansion_to, @game_titles, class: "form_field", autofocus: true  %>
+      <%= f.select :expansion_to, @game_titles, class: "form_field", autofocus: true %>
       <br>
 
       <%= f.label :creator, "Creator:"  %>

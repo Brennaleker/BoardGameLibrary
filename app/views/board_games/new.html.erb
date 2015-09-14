@@ -10,7 +10,7 @@
   <%= form_for @board_game do |f| %>
   <fieldset>
     <legend>Manually Enter Game Details</legend>
-      <%= f.label :title, "Title:"  %>
+      <%= f.label :title, "Title:" %>
       <%= f.text_field :title, required: true, class: "form_field", autofocus: true, placeholder: "Settlers of Catan" %>
 
       <%= f.label :expansion, "Is an expansion:" %>
@@ -18,7 +18,7 @@
       <br>
 
       <%= f.label :expansion_to, "Expansion to:" %>
-      <%= f.select :expansion_to, @game_titles, class: "form_field", autofocus: true  %>
+      <%= f.select :expansion_to, @game_titles, class: "form_field", autofocus: true %>
       <br>
 
       <%= f.label :creator, "Creator:"  %>
@@ -27,10 +27,10 @@
       <%= f.label :my_score, "My Score: (out of 10)"  %>
       <%= f.text_field :my_score, numericality: true, class: "form_field", autofocus: true, placeholder: 8.5 %>
 
-      <%= f.label :min_players, "Minimum Number of Players:"  %>
+      <%= f.label :min_players, "Minimum Number of Players:" %>
       <%= f.text_field :min_players, numericality: true, class: "form_field", autofocus: true, placeholder: 3 %>
 
-      <%= f.label :max_players, "Maximum Number of Players:"  %>
+      <%= f.label :max_players, "Maximum Number of Players:" %>
       <%= f.text_field :max_players, numericality: true, class: "form_field" %>
 
       <%= f.label :min_time, "Short Game: (in minutes)"  %>
