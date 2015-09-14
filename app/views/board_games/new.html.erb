@@ -1,3 +1,7 @@
+<% if flash.now[:errors] %>
+  <p class="alert alert-danger"><%= flash.now[:errors] %></p>
+<% end %>
+
 <div class = "normal_form">
   <%= form_tag({controller:'board_games', action: 'check_bgg'}, method: "post") do %>
     <legend>Check Board Game Geek First</legend>

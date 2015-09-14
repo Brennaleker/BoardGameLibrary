@@ -131,14 +131,14 @@ class BoardGamesController < ApplicationController
   def check_bgg
     @query = params["title"]
     @bgg_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/search?search=#{@query}&exact=1")
-    if @bgg_id = @bgg_result["boardgames"]["boardgame"]["objectid"]
+    if @bgg_result["boardgames"]["boardgame"] == nil
+      flash.now[:errors] = "no matches found"
+      redirect_to new_board_game_path
+    elsif @bgg_id = @bgg_result["boardgames"]["boardgame"]["objectid"]
       @bgg_game_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/boardgame/#{@bgg_id}?stats=1")
       @bgg_game_result = @bgg_game_result["boardgames"]["boardgame"]
       create_game
       redirect_to board_game_path(@board_game.id)
-    else
-      flash[:errors] = "no matches found"
-      redirect_to new_board_game_path
     end
   end
 
