@@ -18,8 +18,22 @@
 @import "bootstrap";
 
 html {
-  background-color: #056d9c;
+  background-color: #6E1124;
   font-family: 'PT Sans';
+}
+
+body {
+  color: #592A18;
+}
+
+a {
+  color: #9A0E31;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #762546;
+  text-decoration: none;
 }
 
 body {
@@ -31,6 +45,10 @@ header {
   margin-bottom: 25px;
 }
 
+.badge {
+  background-color: #762546;
+}
+
 .brand {
   max-width: 40%;
   background-color: rgba(255, 255, 255, .9);
@@ -40,6 +58,14 @@ header {
   border-radius: 20px;
   text-align: center;
   padding: 35px;
+}
+
+.brand a{
+  color: #6E1124;
+}
+
+.brand a:hover{
+  color: #762546;
 }
 
 .finder {
@@ -71,11 +97,32 @@ header {
   background-color: #fff;
 }
 
- .form-header {
-  margin-top: 50px;
-  margin-bottom: 25px;
-  font-family: "Vollkorn";
-  color: #41337A;
+.btn-edit {
+  background-color: #A8834C;
+  color: #fff;
+}
+
+.btn-edit:hover{
+  color: #64492B;
+}
+
+.btn-remove {
+  background-color: #64492B;
+  color: #fff;
+}
+
+.btn-remove:hover {
+  color: #A8834C;
+}
+
+.btn-search {
+  border: 1px groove #762546;
+  background-color: #fff;
+}
+
+.btn-search:hover {
+  background-color: #762546;
+  color: #fff;
 }
 
 th {
@@ -87,13 +134,13 @@ td, th{
   padding-right: 25px;
 }
 
-.library, .not-search-form {
+.library, .normal_form {
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 9px 9px 5px 0px rgba(50, 50, 50, 0.85);
 }
 
-.not-search-form {
+.normal_form {
   max-width: 50%;
   margin: auto;
   padding: 15px;

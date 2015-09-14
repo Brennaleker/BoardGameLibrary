@@ -40,6 +40,6 @@
 <p>
   <%= @board_game.description %>
 </p>
-<%= link_to "Edit Game", edit_board_game_path(@board_game.id), class: "btn btn-primary" %>
-<%= link_to "Remove Game", board_game_path(@board_game.id), class: "btn btn-danger", :method => :delete %>
+<%= link_to "Edit Game", edit_board_game_path(@board_game.id), class: "btn btn-edit" %>
+<%= link_to "Remove Game", board_game_path(@board_game.id), class: "btn btn-remove", :method => :delete %>
 </div>

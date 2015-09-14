@@ -85,6 +85,7 @@ class BoardGamesController < ApplicationController
   def board_games
     @board_games = BoardGame.all.ordered_by_name
   end
+
   def locate_board_game
     board_game_id = params[:id]
     @board_game = BoardGame.find(board_game_id)
@@ -108,13 +109,13 @@ class BoardGamesController < ApplicationController
 
   def call_bgg
    @query = @board_game.title
-   @bgg_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/search?search=#{@query}")
+   @bgg_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/search?search=#{@query}&exact=1")
    if @bgg_result["boardgames"]["boardgame"] != nil
-     @bgg_result = @bgg_result["boardgames"]["boardgame"]
-     @bgg_result.each do |game|
-       name = game["name"]["__content__"]
+     if @bgg_result.class != Hash
+       @bgg_result = @bgg_result["boardgames"]["boardgame"]
+       name = @bgg_result["name"]["__content__"]
        if name == @board_game.title
-         @bgg_id = game["objectid"]
+         @bgg_id = @bgg_result["objectid"]
          @bgg_game_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/boardgame/#{@bgg_id}?stats=1")
          @bgg_score = @bgg_game_result["boardgames"]["boardgame"]["statistics"]["ratings"]["average"]
        end
@@ -128,7 +129,7 @@ class BoardGamesController < ApplicationController
 
   def title_collection
     @board_games = BoardGame.all
-    @game_titles = []
+    @game_titles = [""]
     @board_games.each do |game|
       if game.expansion == false
         @game_titles.push(game.title)

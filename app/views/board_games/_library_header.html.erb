@@ -2,7 +2,7 @@
   <br>
   <div class = "brand">
     <h3>
-      My Board Game Library
+      <%= link_to  'My Board Game Library', home_path %>
     </h3>
     <p>
       There are currently  <span class = "badge"><%= @board_games.count %></span> games in my library.
@@ -17,7 +17,7 @@
       <%= label_tag :time, "Time available (in minutes):" %>
       <%= text_field_tag :time, params[:time], id: 'time_field', placeholder: 60 %>
 
-      <%= submit_tag "Search", class: 'btn btn-default btn-nav-search' %>
+      <%= submit_tag "Search", class: 'btn btn-search' %>
     <% end %>
   </div>
 </header>

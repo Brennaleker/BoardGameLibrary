@@ -1,37 +1,40 @@
-<%= form_for @board_game, class: 'form-horizontal' do |f| %>
-<fieldset>
-  <legend>Game Details</legend>
-    <%= f.label :title, "Title:"  %>
-    <%= f.text_field :title, class: "form_field", autofocus: true, placeholder: "Settlers of Catan" %>
+<div class = "normal_form">
+  <%= form_for @board_game do |f| %>
+  <fieldset>
+    <legend>Game Details</legend>
+      <%= f.label :title, "Title:"  %>
+      <%= f.text_field :title, class: "form_field", autofocus: true, placeholder: "Settlers of Catan" %>
 
-    <%= f.label :expansion, "Is an expansion:" %>
-    <%= f.select :expansion, [[false], [true]], class: "form_field", autofocus: true %>
-    <br>
+      <%= f.label :expansion, "Is an expansion:" %>
+      <%= f.select :expansion, [[false], [true]], class: "form_field", autofocus: true %>
+      <br>
 
-    <%= f.label :expansion_to, "Expansion to:" %>
-    <%= f.select :expansion_to, @game_titles, class: "form_field", autofocus: true  %>
+      <%= f.label :expansion_to, "Expansion to:" %>
+      <%= f.select :expansion_to, @game_titles, class: "form_field", autofocus: true  %>
+      <br>
 
-    <%= f.label :creator, "Creator:"  %>
-    <%= f.text_field :creator, class: "form_field", autofocus: true, placeholder: "Klaus Teuber", value: @board_game.creator %>
+      <%= f.label :creator, "Creator:"  %>
+      <%= f.text_field :creator, class: "form_field", autofocus: true, placeholder: "Klaus Teuber", value: @board_game.creator %>
 
-    <%= f.label :my_score, "My Score: (out of 10)"  %>
-    <%= f.text_field :my_score, class: "form_field", autofocus: true, placeholder: 8.5, value: @board_game.my_score %>
+      <%= f.label :my_score, "My Score: (out of 10)"  %>
+      <%= f.text_field :my_score, class: "form_field", autofocus: true, placeholder: 8.5, value: @board_game.my_score %>
 
-    <%= f.label :min_players, "Minimum Number of Players:"  %>
-    <%= f.text_field :min_players, class: "form_field", autofocus: true, placeholder: 3, value: @board_game.min_players %>
+      <%= f.label :min_players, "Minimum Number of Players:"  %>
+      <%= f.text_field :min_players, class: "form_field", autofocus: true, placeholder: 3, value: @board_game.min_players %>
 
-    <%= f.label :max_players, "Maximum Number of Players:"  %>
-    <%= f.text_field :max_players, class: "form_field", autofocus: true, placeholder: 4, value: @board_game.max_players %>
+      <%= f.label :max_players, "Maximum Number of Players:"  %>
+      <%= f.text_field :max_players, class: "form_field", autofocus: true, placeholder: 4, value: @board_game.max_players %>
 
-    <%= f.label :min_time, "Short Game: (in minutes)"  %>
-    <%= f.text_field :min_time, class: "form_field", autofocus: true, placeholder: 60, value: @board_game.min_time %>
+      <%= f.label :min_time, "Short Game: (in minutes)"  %>
+      <%= f.text_field :min_time, class: "form_field", autofocus: true, placeholder: 60, value: @board_game.min_time %>
 
-    <%= f.label :max_time, "Long Game: (in minutes)"  %>
-    <%= f.text_field :max_time, class: "form_field", autofocus: true, placeholder: 60, value: @board_game.max_time %>
+      <%= f.label :max_time, "Long Game: (in minutes)"  %>
+      <%= f.text_field :max_time, class: "form_field", autofocus: true, placeholder: 60, value: @board_game.max_time %>
 
-    <%= f.label :description, "Description:"  %>
-    <%= f.text_area :description, size: "50x10", class: "form_field", autofocus: true, placeholder: "In Settlers of Catan players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources (cards)—wood, grain, brick, sheep, or stone—to build up their civilizations to get to 10 victory points and win the game.", value: @board_game.description %>
- </fieldset>
+      <%= f.label :description, "Description:"  %>
+      <%= f.text_area :description, size: "50x10", class: "form_field", autofocus: true, placeholder: "In Settlers of Catan players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources (cards)—wood, grain, brick, sheep, or stone—to build up their civilizations to get to 10 victory points and win the game.", value: @board_game.description %>
+   </fieldset>
 
-  <%= f.submit 'Add Game', class: 'btn btn-primary' %>
-<% end %>
+    <%= f.submit 'Add Game', class: 'btn btn-edit' %>
+  <% end %>
+</div>
