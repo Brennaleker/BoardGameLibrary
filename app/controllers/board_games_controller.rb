@@ -29,7 +29,7 @@ class BoardGamesController < ApplicationController
     if @board_game.save
       redirect_to board_game_path(@board_game.id)
     else
-      flash[:error] = "You must include a title."
+      flash[:errors] = error_messages(@board_game)
       redirect_to new_board_game_path
     end
   end
@@ -111,16 +111,33 @@ class BoardGamesController < ApplicationController
    @query = @board_game.title
    @bgg_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/search?search=#{@query}&exact=1")
    if @bgg_result["boardgames"]["boardgame"] != nil
+     @bgg_result = @bgg_result["boardgames"]["boardgame"]
      if @bgg_result.class != Hash
-       @bgg_result = @bgg_result["boardgames"]["boardgame"]
+       name = @bgg_result[0]["name"]["__content__"]
+       if name == @board_game.title
+         @bgg_id = @bgg_result[0]["objectid"]
+         check_for_match
+       end
+     else
        name = @bgg_result["name"]["__content__"]
        if name == @board_game.title
          @bgg_id = @bgg_result["objectid"]
-         @bgg_game_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/boardgame/#{@bgg_id}?stats=1")
-         @bgg_score = @bgg_game_result["boardgames"]["boardgame"]["statistics"]["ratings"]["average"]
+         check_for_match
        end
-      end
+     end
     end
+  end
+
+  def check_bgg
+    @query = params["title"]
+    @bgg_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/search?search=#{@query}&exact=1")
+    @bgg_id = @bgg_result["boardgames"]["boardgame"]["objectid"]
+    raise
+  end
+
+  def check_for_match
+    @bgg_game_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/boardgame/#{@bgg_id}?stats=1")
+    @bgg_score = @bgg_game_result["boardgames"]["boardgame"]["statistics"]["ratings"]["average"]
   end
 
   def update_bgg_score

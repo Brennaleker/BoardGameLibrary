@@ -1,0 +1,5 @@
+<% flash[:errors].each do |error| %>
+  <p class="alert alert-danger">
+    <%= "#{error[0].capitalize} #{error[1]}." %>
+  </p>
+<% end %>

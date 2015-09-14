@@ -14,25 +14,25 @@
       <br>
 
       <%= f.label :creator, "Creator:"  %>
-      <%= f.text_field :creator, class: "form_field", autofocus: true,  value: @board_game.creator %>
+      <%= f.text_field :creator, class: "form_field", autofocus: true %>
 
       <%= f.label :my_score, "My Score: (out of 10)"  %>
-      <%= f.text_field :my_score, class: "form_field", autofocus: true, value: @board_game.my_score %>
+      <%= f.text_field :my_score, class: "form_field", autofocus: true %>
 
       <%= f.label :min_players, "Minimum Number of Players:"  %>
-      <%= f.text_field :min_players, class: "form_field", autofocus: true, value: @board_game.min_players %>
+      <%= f.text_field :min_players, class: "form_field", autofocus: true %>
 
       <%= f.label :max_players, "Maximum Number of Players:"  %>
-      <%= f.text_field :max_players, class: "form_field", autofocus: true, value: @board_game.max_players %>
+      <%= f.text_field :max_players, class: "form_field", autofocus: true %>
 
       <%= f.label :min_time, "Short Game: (in minutes)"  %>
-      <%= f.text_field :min_time, class: "form_field", autofocus: true, value: @board_game.min_time %>
+      <%= f.text_field :min_time, class: "form_field", autofocus: true %>
 
       <%= f.label :max_time, "Long Game: (in minutes)"  %>
-      <%= f.text_field :max_time, class: "form_field", autofocus: true, value: @board_game.max_time %>
+      <%= f.text_field :max_time, class: "form_field", autofocus: true %>
 
       <%= f.label :description, "Description:"  %>
-      <%= f.text_area :description, size: "50x10", class: "form_field", autofocus: true, value: @board_game.description %>
+      <%= f.text_area :description, size: "50x10", class: "form_field", autofocus: true %>
    </fieldset>
 
     <%= f.submit 'Edit Game', class: 'btn btn-edit' %>

@@ -55,6 +55,7 @@ RSpec.describe BoardGamesController, type: :controller do
         board_game:{
           title: 'a title',
           creator: 'a creator',
+          my_score: 9,
           description: 'a description'
         }
       }
