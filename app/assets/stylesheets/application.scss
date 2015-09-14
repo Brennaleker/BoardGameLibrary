@@ -116,13 +116,13 @@ header {
 }
 
 .btn-search {
-  border: 1px groove #762546;
-  background-color: #fff;
+  background-color: #762546;
+  color: #fff;
 }
 
 .btn-search:hover {
-  background-color: #762546;
-  color: #fff;
+  border: 1px groove #762546;
+  background-color: #fff;
 }
 
 th {

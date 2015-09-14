@@ -127,4 +127,14 @@ RSpec.describe BoardGamesController, type: :controller do
     end
   end # end of describe block
 
+  # describe "GET #search" do
+  #   it "finds results matching params" do
+  #     board_game = BoardGame.create(title: "Board game", min_players: 2, max_players: 4, min_time: 20, max_time: 30)
+  #     params[:time] = 30
+  #     params[:players] = 3
+  #     search
+  #     expect(@results.count).to eq 1
+  #   end
+  # end
+
 end # end of describe for Board Games Controller
