@@ -131,8 +131,27 @@ class BoardGamesController < ApplicationController
   def check_bgg
     @query = params["title"]
     @bgg_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/search?search=#{@query}&exact=1")
-    @bgg_id = @bgg_result["boardgames"]["boardgame"]["objectid"]
-    raise
+    if @bgg_id = @bgg_result["boardgames"]["boardgame"]["objectid"]
+      @bgg_game_result = HTTParty.get("http://www.boardgamegeek.com/xmlapi/boardgame/#{@bgg_id}?stats=1")
+      @bgg_game_result = @bgg_game_result["boardgames"]["boardgame"]
+      create_game
+      redirect_to board_game_path(@board_game.id)
+    else
+      flash[:errors] = "no matches found"
+      redirect_to new_board_game_path
+    end
+  end
+
+  def create_game
+    title = params["title"]
+    creator = @bgg_game_result["boardgamedesigner"]["__content__"]
+    description = @bgg_game_result["description"] 
+    min_players = @bgg_game_result["minplayers"]
+    max_players = @bgg_game_result["maxplayers"]
+    min_time = @bgg_game_result["minpaytime"]
+    max_time = @bgg_game_result["maxpaytime"]
+    bgg_score = @bgg_game_result["statistics"]["ratings"]["average"]
+    @board_game = BoardGame.create(title: title, creator: creator, description: description, min_players: min_players, max_players: max_players, min_time: min_time, max_time: max_time, bgg_score: bgg_score)
   end
 
   def check_for_match

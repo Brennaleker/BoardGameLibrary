@@ -1,7 +1,3 @@
-<% unless flash[:errors].nil? %>
-  <%= render partial: "errors", locals: {instance: @board_game} %>
-<% end %>
-
 <div class = "normal_form">
   <%= form_tag({controller:'board_games', action: 'check_bgg'}, method: "post") do %>
     <legend>Check Board Game Geek First</legend>
