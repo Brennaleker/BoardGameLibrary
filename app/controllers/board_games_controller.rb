@@ -87,8 +87,7 @@ class BoardGamesController < ApplicationController
   end
 
   def locate_board_game
-    board_game_id = params[:id]
-    @board_game = BoardGame.find(board_game_id)
+    @board_game = BoardGame.find(params[:id])
   end
 
   def find_expansions
@@ -144,7 +143,7 @@ class BoardGamesController < ApplicationController
 
   def create_game
     title = params["title"]
-    if @bgg_game_result["boardgamedesigner"].count == 1
+    if @bgg_game_result["boardgamedesigner"].count == 2
       creator = @bgg_game_result["boardgamedesigner"]["__content__"]
     else
       creator = ""
@@ -186,7 +185,7 @@ class BoardGamesController < ApplicationController
   private
 
   def board_game_params
-    params.permit(board_game: [:title, :description, :author, :stars])
+    params.permit(board_game: [:title, :description, :creator, :min_players, :max_players, :min_players, :max_players, :expansion, :expansion_to, :my_score, :bgg_score])
   end
 
 end

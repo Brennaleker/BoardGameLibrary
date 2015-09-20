@@ -1,7 +1,12 @@
 class BoardGame < ActiveRecord::Base
+
   validates :title, presence: true, uniqueness: true
 
   scope :ordered_by_name, -> { order('board_games.title') }
+
+  def to_param
+    name.downcase.gsub(" ", "-")
+  end
 
   def self.time_search(time)
     where('max_time <= ?', time)

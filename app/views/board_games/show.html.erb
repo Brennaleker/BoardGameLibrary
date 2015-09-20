@@ -21,12 +21,7 @@
   My Score: <%= @board_game.my_score %>
 </p>
 <p>
-  Board Game Geek Score:
-  <% if @board_game.bgg_score == nil %>
-    not found
-  <% else %>
-    <%= @board_game.bgg_score %>
-  <% end %>
+  Board Game Geek Score: <%= check_if_bgg_score %>
 </p>
 <p>
   Players: <%= @board_game.min_players %> - <%= @board_game.max_players %>

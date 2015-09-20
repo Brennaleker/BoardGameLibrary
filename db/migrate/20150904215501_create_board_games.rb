@@ -14,6 +14,7 @@ class CreateBoardGames < ActiveRecord::Migration
       t.float :bgg_score
       t.boolean :expansion
       t.string :expansion_to
+      t.string :slug
 
     end
   end
